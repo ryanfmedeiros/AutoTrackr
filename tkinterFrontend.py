@@ -1,6 +1,8 @@
 import customtkinter as ctk
 from tkinter import messagebox
 from custom_dialogs import ask_prefill_input
+from vehicle_dialog import ask_vehicle_info
+from vehicle_dialog import ask_maintenance_info
 import main  # backend 
 
 class CarMaintenanceApp(ctk.CTk):
@@ -29,14 +31,11 @@ class CarMaintenanceApp(ctk.CTk):
         ctk.CTkButton(frame, text="💾 Save and Exit", command=self.save_and_exit).pack(pady=20, fill='x')
 
     def add_vehicle(self):
-        make = ctk.CTkInputDialog(title="Add Vehicle", text="Make:").get_input()
-        model = ctk.CTkInputDialog(title="Add Vehicle", text="Model:").get_input()
-        year = ctk.CTkInputDialog(title="Add Vehicle", text="Year:").get_input()
-        mileage = ctk.CTkInputDialog(title="Add Vehicle", text="Mileage:").get_input()
-
-        if None in (make, model, year, mileage):
+        result = ask_vehicle_info(self)
+        if result is None:
             return
 
+        make, model, year, mileage = result
         self.data = main.add_vehicle(self.data, make, model, year, mileage)
         main.save_data(self.data)
         messagebox.showinfo("Success", "Vehicle added!")
@@ -68,24 +67,19 @@ class CarMaintenanceApp(ctk.CTk):
             btn.pack(fill="x", pady=5, padx=5)
 
     def open_maintenance_form(self, vehicle):
-        service_type = ctk.CTkInputDialog(title="Maintenance", text="Service Type:").get_input()
-        date = ctk.CTkInputDialog(title="Maintenance", text="Date (YYYY-MM-DD):").get_input()
-        mileage = ctk.CTkInputDialog(title="Maintenance", text="Mileage at service:").get_input()
-        cost = ctk.CTkInputDialog(title="Maintenance", text="Cost:").get_input()
-        notes = ctk.CTkInputDialog(title="Maintenance", text="Notes:").get_input()
-
-        if None in (service_type, date, mileage, cost, notes):
+        result = ask_maintenance_info(self, vehicle)
+        if result is None:
             return
 
         try:
             self.data = main.add_maintenance(
                 self.data,
                 vehicle["id"],
-                service_type,
-                date,
-                mileage,
-                cost,
-                notes
+                result["service_type"],
+                result["date"],
+                result["mileage"],
+                result["cost"],
+                result["notes"]
             )
             main.save_data(self.data)
             messagebox.showinfo("Success", f"Maintenance added for {vehicle['make']} {vehicle['model']}.")
