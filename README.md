@@ -42,40 +42,6 @@ python main.py
 
 The command-line mode uses a simple numbered menu to perform the same operations.
 
-## File Overview
-
-AutoTrackr/
-├── tkinterFrontend.py        # Main GUI application
-├── main.py                   # Command-line backend logic and data storage
-├── custom_dialogs.py         # Reusable GUI input dialog with prefill/edit support
-├── vehicle_dialog.py         # Dialogs for adding vehicles and maintenance records
-├── car_data.json             # JSON file storing all vehicle/maintenance data
-
-## Example Data Format
-
-All vehicle and maintenance data is stored in car_data.json:
-
-{
-  "vehicles": [
-    {
-      "id": 1,
-      "make": "Honda",
-      "model": "Civic",
-      "year": "2018",
-      "mileage": "76000",
-      "maintenance": [
-        {
-          "service_type": "Tire Rotation",
-          "date": "2025-06-15",
-          "mileage": "75500",
-          "cost": "30",
-          "notes": "Rotated front to back"
-        }
-      ]
-    }
-  ]
-}
-
 ## Planned Improvements (Ideas)
 
     Export data to CSV or PDF
