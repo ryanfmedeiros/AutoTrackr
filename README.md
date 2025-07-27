@@ -25,12 +25,11 @@ Install the dependency via pip:
 
 pip install customtkinter
 
-## Running the Application
-GUI Version
+## GUI Version
 
 Launch the graphical version of AutoTrackr:
 
-python tkinterFrontend.py
+py tkinterFrontend.py
 
 You’ll see a clean interface for managing vehicles and maintenance records.
 
@@ -38,7 +37,7 @@ You’ll see a clean interface for managing vehicles and maintenance records.
 
 To use the terminal-based version:
 
-python main.py
+py main.py
 
 The command-line mode uses a simple numbered menu to perform the same operations.
 
