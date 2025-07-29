@@ -52,3 +52,7 @@ The command-line mode uses a simple numbered menu to perform the same operations
     Tagging or categorizing services
 
     Dark/light theme toggle and customization
+
+## Author
+
+Created by Ryan Medeiros (https://github.com/ryanfmedeiros)
