@@ -1,0 +1,18 @@
+# Ignore Python bytecode and cache
+__pycache__/
+*.py[cod]
+
+# Ignore local environment/config files
+*.env
+*.DS_Store
+*.log
+
+# Ignore IDE/editor config
+.vscode/
+.idea/
+
+# Ignore your JSON data file (user-generated)
+car_data.json
+
+# Ignore OS-specific files
+Thumbs.db
