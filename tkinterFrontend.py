@@ -3,6 +3,7 @@ from tkinter import messagebox
 from custom_dialogs import ask_prefill_input
 from vehicle_dialog import ask_vehicle_info
 from vehicle_dialog import ask_maintenance_info
+from vehicle_dialog import ask_edit_maintenance_info
 import main  # backend 
 
 class CarMaintenanceApp(ctk.CTk):
@@ -185,34 +186,11 @@ class CarMaintenanceApp(ctk.CTk):
     def edit_maintenance_record(self, vehicle, index):
         m = vehicle["maintenance"][index]
 
-        service_type = ask_prefill_input(self, "Edit Maintenance", "Service Type:", m["service_type"])
-        if service_type is None:
+        result = ask_edit_maintenance_info(self, m)
+        if result is None:
             return
 
-        date = ask_prefill_input(self, "Edit Maintenance", "Date (YYYY-MM-DD):", m["date"])
-        if date is None:
-            return
-
-        mileage = ask_prefill_input(self, "Edit Maintenance", "Mileage at service:", m["mileage"])
-        if mileage is None:
-            return
-
-        cost = ask_prefill_input(self, "Edit Maintenance", "Cost:", m["cost"])
-        if cost is None:
-            return
-
-        notes = ask_prefill_input(self, "Edit Maintenance", "Notes:", m["notes"])
-        if notes is None:
-            return
-
-        vehicle["maintenance"][index] = {
-            "service_type": service_type,
-            "date": date,
-            "mileage": mileage,
-            "cost": cost,
-            "notes": notes
-        }
-
+        vehicle["maintenance"][index] = result
         main.save_data(self.data)
         messagebox.showinfo("Success", "Maintenance record updated.")
         self.show_vehicle_maintenance(vehicle)
