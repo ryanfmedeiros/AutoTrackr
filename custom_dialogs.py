@@ -7,6 +7,7 @@ class PrefillInputDialog(ctk.CTkToplevel):
         self.geometry("350x120")
         self.resizable(False, False)
         self.result = None
+        self.wait_visibility()
         self.grab_set()
 
         label = ctk.CTkLabel(self, text=prompt)

@@ -50,6 +50,7 @@ class CarMaintenanceApp(ctk.CTk):
         popup = ctk.CTkToplevel(self)
         popup.title("Select Vehicle")
         popup.geometry("400x300")
+        popup.wait_visibility()
         popup.grab_set()
 
         label = ctk.CTkLabel(popup, text="Select a vehicle to add maintenance:", font=ctk.CTkFont(size=16, weight="bold"))
@@ -100,6 +101,7 @@ class CarMaintenanceApp(ctk.CTk):
         self.view_popup = ctk.CTkToplevel(self)
         self.view_popup.title("Vehicles")
         self.view_popup.geometry("500x400")
+        self.view_popup.wait_visibility()
         self.view_popup.grab_set()
 
         self.show_vehicle_list()
