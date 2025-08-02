@@ -6,6 +6,7 @@ class AddVehicleDialog(ctk.CTkToplevel):
         self.title("Add New Vehicle")
         self.geometry("400x300")
         self.resizable(False, False)
+        self.wait_visibility()
         self.grab_set()
         self.result = None
 
@@ -59,6 +60,7 @@ class AddMaintenanceDialog(ctk.CTkToplevel):
         self.title("Add Maintenance Record")
         self.geometry("400x360")
         self.resizable(False, False)
+        self.wait_visibility()
         self.grab_set()
         self.result = None
 
@@ -122,6 +124,7 @@ class EditMaintenanceDialog(ctk.CTkToplevel):
         self.title("Edit Maintenance Record")
         self.geometry("400x360")
         self.resizable(False, False)
+        self.wait_visibility()
         self.grab_set()
         self.result = None
 

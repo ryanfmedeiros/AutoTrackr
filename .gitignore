@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 
+venv
+
 # Ignore local environment/config files
 *.env
 *.DS_Store

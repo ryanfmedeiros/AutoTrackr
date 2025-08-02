@@ -19,9 +19,11 @@
 ## Requirements
 
 - Python 3.8 or newer
+- [`tk / tkinter`](https://docs.python.org/3/library/tkinter.html)
+
 - [`customtkinter`](https://github.com/TomSchimansky/CustomTkinter)
 
-Install the dependency via pip:
+Install the dependencies via pip:
 
 pip install customtkinter
 
@@ -55,4 +57,4 @@ The command-line mode uses a simple numbered menu to perform the same operations
 
 ## Author
 
-Created by Ryan Medeiros (https://github.com/ryanfmedeiros)
+Created by [Ryan Medeiros](https://github.com/ryanfmedeiros)
